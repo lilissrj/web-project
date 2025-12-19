@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tentang Banda Neira</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+  --primary: #2f4f4f;
+  --secondary: #5f8f8f;
+  --accent: #f4a261;
+  --light: #f8f9fa;
+  --dark: #1a2a3a;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
+  color: var(--dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: darkslategray;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 0;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+nav a:hover {
+  color: coral;
+}
+
+nav a.active {
+  color: coral;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 40px 60px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 80px;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(95, 143, 143, 0.8)), url('https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.hero-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero-section p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  background: forestgreen;
+  color: white;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 700;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: 2px solid forestgreen;
+}
+
+.btn-primary:hover {
+  background: seagreen;
+  border-color: seagreen;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 25px;
+  color: darkslategray;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.about-text h2::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
+}
+
+.about-text p {
+  margin-bottom: 25px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.highlight-box {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  margin-top: 30px;
+  border-top: 4px solid var(--accent);
+  transition: var(--transition);
+}
+
+.highlight-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.highlight-box h3 {
+  color: darkslategray;
+  margin-bottom: 15px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.highlight-box i {
+  color: var(--accent);
+}
+
+.about-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  height: 280px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  padding: 20px;
+  color: white;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.gallery-item:hover .overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.features-section {
+  margin-bottom: 80px;
+}
+
+.features-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: darkslategray;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-align: center;
+  padding: 30px 25px;
+  position: relative;
+  border-top: 4px solid var(--accent);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card i {
+  font-size: 40px;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: darkslategray;
+}
+
+.feature-card p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.timeline-section {
+  margin-bottom: 80px;
+}
+
+.timeline-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 50px;
+  color: darkslategray;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: var(--secondary);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.timeline-content {
+  padding: 20px 25px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  position: relative;
+  transition: var(--transition);
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -10px;
+  background-color: white;
+  top: 30px;
+  transform: rotate(45deg);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: -10px;
+  background-color: white;
+  top: 30px;
+  transform: rotate(45deg);
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+  color: darkslategray;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.timeline-content p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: var(--accent);
+  border: 4px solid white;
+  border-radius: 50%;
+  top: 30px;
+  box-shadow: 0 0 0 4px var(--secondary);
+}
+
+.timeline-item:nth-child(odd)::after {
+  right: -10px;
+}
+
+.timeline-item:nth-child(even)::after {
+  left: -10px;
+}
+
+.website-purpose {
+  background: white;
+  border-radius: 16px;
+  padding: 50px 40px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  margin-bottom: 80px;
+  position: relative;
+  border-top: 4px solid var(--accent);
+}
+
+.website-purpose h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: darkslategray;
+}
+
+.website-purpose p {
+  max-width: 800px;
+  margin: 0 auto 25px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+footer {
+  background: darkslategray;
+  color: white;
+  padding: 35px 30px;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-logo h2 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.footer-logo p {
+  margin-top: 5px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+footer h3 {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+footer p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+footer i {
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 18px;
+  margin-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+@media (max-width: 1100px) {
+  .about-content,
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .timeline::before {
+    left: 31px;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+  
+  .timeline-item:nth-child(odd)::after,
+  .timeline-item:nth-child(even)::after {
+    left: 21px;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content::after,
+  .timeline-item:nth-child(even) .timeline-content::after {
+    left: -10px;
+    right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 18px 25px;
+  }
+  
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  main {
+    padding: 100px 20px 50px;
+  }
+  
+  .hero-section h1 {
+    font-size: 36px;
+  }
+  
+  .hero-section p {
+    font-size: 16px;
+  }
+  
+  .about-text h2,
+  .features-section h2,
+  .timeline-section h2,
+  .website-purpose h2 {
+    font-size: 30px;
+  }
+  
+  .website-purpose {
+    padding: 40px 25px;
+  }
+  
+  .hero-section {
+    padding: 40px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+  
+  .hero-section h1 {
+    font-size: 32px;
+  }
+  
+  .feature-card {
+    padding: 30px 20px;
+  }
+  
+  .hero-section {
+    padding: 40px 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section { animation: fadeIn 0.8s ease forwards; }
+.about-content { animation: fadeIn 0.8s ease 0.2s forwards; opacity: 0; }
+.features-section { animation: fadeIn 0.8s ease 0.4s forwards; opacity: 0; }
+.timeline-section { animation: fadeIn 0.8s ease 0.6s forwards; opacity: 0; }
+.website-purpose { animation: fadeIn 0.8s ease 0.8s forwards; opacity: 0; }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5f8f8f;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2f4f4f;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BANDA NEIRA</div>
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="destinasi.html"><i class="fas fa-map-marked-alt"></i> Destinasi</a></li>
+      <li><a href="kuliner.html"><i class="fas fa-utensils"></i> Kuliner</a></li>
+      <li><a href="tentang.html" class="active"><i class="fas fa-info-circle"></i> Tentang</a></li>
+      <li><a href="kontak.html"><i class="fas fa-envelope"></i> Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero-section">
+    <h1>Tentang Banda Neira</h1>
+    <p>Mengenal sejarah, budaya, dan keindahan Kepulauan Rempah yang kaya akan nilai sejarah dan pesona alam yang tak terlupakan.</p>
+    <a class="btn-primary" href="destinasi.html">Jelajahi Destinasi</a>
+  </section>
+
+  <section class="about-content">
+    <div class="about-text">
+      <h2>Mengenal Banda Neira</h2>
+      <p>
+        Kepulauan Banda, atau yang dikenal sebagai <span class="highlight">Spice Islands</span>, adalah gugusan pulau vulkanik di Maluku, Indonesia. 
+        Sejak abad ke-16, kepulauan ini menjadi pusat perdagangan pala dunia yang menarik bangsa Eropa seperti Portugis, Belanda, dan Inggris.
+      </p>
+      <p>
+        Banda Neira, sebagai pulau utama Kepulauan Banda, menyimpan jejak sejarah kolonial yang masih terlihat jelas dalam arsitektur bangunan dan benteng-bentengnya, termasuk Benteng Nassau dan Benteng Belgica yang dibangun Belanda untuk mengamankan perdagangan pala.
+      </p>
+      <p>
+        Selain sejarahnya yang kaya, Banda Neira menawarkan keindahan alam mulai dari laut jernih dengan terumbu karang yang masih alami hingga panorama gunung berapi Gunung Api Banda.
+      </p>
+      
+      <div class="highlight-box">
+        <h3><i class="fas fa-star"></i> Keunikan Banda Neira</h3>
+        <p>
+          Perpaduan unik antara wisata sejarah dan alam menjadikan Banda Neira destinasi yang tak tertandingi. 
+          Di sini Anda dapat mengunjungi benteng bersejarah di pagi hari dan menikmati keindahan bawah laut di sore hari.
+        </p>
+      </div>
+    </div>
+    
+    <div class="about-gallery">
+      <div class="gallery-item">
+        <img src="img/spot-diving2.jpeg" alt="Pemandangan banda neira">
+        <div class="overlay">
+          <h3>Pemandangan Banda Neira</h3>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/pantaibanda.jpg" alt="Pantai eksotis banda neira">
+        <div class="overlay">
+          <h3>Pantai Eksotis Banda Neira</h3>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/benteng-nassau1.png" alt="Warisan sejarah kolonial">
+        <div class="overlay">
+          <h3>Warisan Sejarah Kolonial</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <h2>Keunggulan Wisata Banda Neira</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-landmark"></i>
+        <h3>Wisata Sejarah</h3>
+        <p>Benteng Belgica, Nassau, dan bangunan kolonial lain menjadi saksi kejayaan perdagangan rempah dunia dengan arsitektur yang mengagumkan.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-mountain"></i>
+        <h3>Wisata Alam</h3>
+        <p>Pantai eksotis, laut jernih, dan panorama Gunung Api Banda menawarkan pengalaman alam yang menakjubkan.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-water"></i>
+        <h3>Wisata Bahari</h3>
+        <p>Spot snorkeling dan diving kelas dunia dengan terumbu karang yang masih alami dan biota laut yang berwarna-warni.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+    <h2>Sejarah Singkat Banda Neira</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Abad ke-16</h3>
+          <p>Kepulauan Banda menjadi pusat perdagangan pala dunia. Bangsa Portugis tiba pertama kali untuk mencari rempah-rempah.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>1609</h3>
+          <p>Belanda mendirikan VOC dan memonopoli perdagangan pala. Benteng Nassau dan Benteng Belgica dibangun untuk mengamankan posisi mereka.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>1667</h3>
+          <p>Pulau Run ditukar dengan Manhattan dalam Perjanjian Breda antara Belanda dan Inggris.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Sekarang</h3>
+          <p>Banda Neira menjadi destinasi wisata sejarah dan alam yang populer, menarik wisatawan lokal dan internasional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="website-purpose">
+    <h2>Tentang Website Ini</h2>
+    <p>
+      Website <span class="highlight">Wisata Banda Neira</span> dibuat sebagai media informasi dan promosi destinasi wisata alam dan sejarah Kepulauan Banda. 
+      Website ini bertujuan memperkenalkan keindahan, budaya, dan potensi wisata Banda Neira secara visual, informatif, dan menarik bagi wisatawan lokal maupun internasional.
+    </p>
+    <p style="margin-top: 20px;">
+      Melalui website ini, kami berharap dapat meningkatkan kesadaran akan pentingnya pelestarian warisan sejarah dan alam Banda Neira untuk generasi mendatang.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h2>BANDA NEIRA</h2>
+      <p>Eksplorasi Keindahan Kepulauan Rempah</p>
+    </div>
+    <div class="footer-contact">
+      <h3>Kontak</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Kepulauan Banda, Maluku, Indonesia</p>
+      <p><i class="fas fa-phone"></i> +62 812 0000 0000</p>
+      <p><i class="fas fa-envelope"></i> info@bandaneira.site</p>
+    </div>
+    <div class="footer-social">
+      <h3>Ikuti Kami</h3>
+      <p><i class="fab fa-instagram"></i> Instagram: @bandaneira.site</p>
+      <p><i class="fab fa-facebook"></i> Facebook: Banda Neira Travel</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Wisata Banda Neira — Explore the Spice Islands
+  </div>
+</footer>
+
+</body>
+</html>

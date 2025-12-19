@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kuliner Khas Banda Neira</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --primary: #2f4f4f;
+      --secondary: #5f8f8f;
+      --accent: #f4a261;
+      --light: #f8f9fa;
+      --dark: #1a2a3a;
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0;}
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fafafa;
+      color: var(--dark);
+      line-height:1.7;
+    }
+
+    /* HEADER - SAMA UNTUK SEMUA HALAMAN */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      background: darkslategray;
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      margin: 0; padding: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 0;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a:hover {
+      color: coral;
+    }
+
+    /* MAIN */
+    main {
+      padding-top: 110px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 110px 20px 40px;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: darkslategray;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: dimgray;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    /* ITEM */
+    .kuliner-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 80px;
+      gap: 50px;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-left: 4px solid var(--accent);
+      transition: all 0.3s ease;
+    }
+
+    .kuliner-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .kuliner-item.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .kuliner-item img {
+      width: 40%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* TEXT AREA */
+    .keterangan { 
+      width: 60%; 
+    }
+
+    .keterangan h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: darkslategray;
+      margin-bottom: 18px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .keterangan h2:after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      bottom: -8px;
+      left: 0;
+    }
+
+    .info-box {
+      background: #e8f1f1;
+      padding: 12px 16px;
+      border-left: 4px solid #3a5f5f;
+      border-radius: 6px;
+      margin: 18px 0;
+      font-size: 15px;
+      color: darkslategray;
+      line-height: 1.7;
+    }
+
+    .funfact {
+      margin-top: 15px;
+      background: #f5fafa;
+      padding: 12px 16px;
+      border-left: 4px solid #5f8f8f;
+      border-radius: 6px;
+      font-size: 14px;
+      color: dimgray;
+    }
+
+    /* TIPS SECTION */
+    .tips-section {
+      margin-top: 100px;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      border-left: 6px solid darkslategray;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .tips-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      margin-bottom: 15px;
+      color: darkslategray;
+    }
+
+    .tips-section ul {
+      font-size: 16px;
+      line-height: 1.9;
+      padding-left: 18px;
+      color: midnightblue;
+    }
+
+    /* FOOTER - SAMA UNTUK SEMUA HALAMAN */
+    footer {
+      background: darkslategray;
+      color: white;
+      padding: 35px 30px;
+      margin-top: 80px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .footer-logo h2 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .footer-logo p {
+      margin-top: 5px;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    footer h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    footer p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+
+    footer i {
+      margin-right: 8px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 18px;
+      margin-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 1100px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 25px;
+      }
+    }
+
+    @media(max-width: 900px) {
+      header {
+        padding: 18px 25px;
+      }
+      
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .kuliner-item,
+      .kuliner-item.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+      }
+
+      .kuliner-item img {
+        width: 90%;
+        height: 240px;
+      }
+
+      .keterangan { 
+        width: 100%; 
+      }
+
+      .keterangan h2:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    @media(max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      
+      h1 {
+        font-size: 32px;
+      }
+      
+      .subtitle {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">BANDA NEIRA</div>
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="destinasi.html"><i class="fas fa-map-marked-alt"></i> Destinasi</a></li>
+        <li><a href="kuliner.html" style="color: coral;"><i class="fas fa-utensils"></i> Kuliner</a></li>
+        <li><a href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+        <li><a href="kontak.html"><i class="fas fa-envelope"></i> Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <h1>Kuliner Khas Banda Neira</h1>
+    <p class="subtitle">Jelajahi cita rasa autentik kepulauan rempah Indonesia melalui hidangan tradisional yang menggugah selera</p>
+
+    <!-- 1. Olahan Pala -->
+    <div class="kuliner-item">
+      <img src="img/pala.jpg" alt="Olahan Pala">
+      <div class="keterangan">
+        <h2>Olahan Pala</h2>
+
+        <p>Olahan pala Banda Neira memanfaatkan buah pala untuk hidangan manisan, sirup, dan bumbu khas.</p>
+
+        <div class="info-box">
+          <strong>Info Tambahan:</strong><br>
+          • Asal: Banda Neira<br>
+          • Rasa: Manis & Rempah<br>
+          • Tingkat pedas: Tidak pedas<br>
+          • Disajikan dengan: Teh hangat atau makanan manis
+        </div>
+
+        <div class="funfact">
+          🔸 <em>Fun Fact:</em> Pada abad ke-17, pala Banda menjadi komoditas paling dicari di dunia!
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Ikan Kuah Kuning -->
+    <div class="kuliner-item reverse">
+      <img src="img/ikankuah banda.jpg" alt="Ikan Kuah Kuning">
+      <div class="keterangan">
+        <h2>Ikan Kuah Kuning</h2>
+
+        <p>Hidangan ikan segar dengan kuah kuning berbumbu khas rempah Maluku.</p>
+
+        <div class="info-box">
+          <strong>Info Tambahan:</strong><br>
+          • Asal: Banda Neira<br>
+          • Rasa: Gurih Rempah<br>
+          • Tingkat pedas: Sedang<br>
+          • Disajikan dengan: Papeda atau nasi putih
+        </div>
+
+        <div class="funfact">
+          🔸 <em>Fun Fact:</em> Warna kuningnya berasal dari kunyit asli Maluku yang aromanya sangat kuat.
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Ikan Bakar Rica -->
+    <div class="kuliner-item">
+      <img src="img/ikanbakarbanda.webp" alt="Ikan Bakar Rica-Rica">
+      <div class="keterangan">
+        <h2>Ikan Bakar Rica-Rica</h2>
+
+        <p>Ikan bakar pedas dengan cita rasa khas Maluku.</p>
+
+        <div class="info-box">
+          <strong>Info Tambahan:</strong><br>
+          • Asal: Banda<br>
+          • Rasa: Pedas & Gurih<br>
+          • Tingkat pedas: Tinggi<br>
+          • Disajikan dengan: Dabu-dabu atau nasi putih
+        </div>
+
+        <div class="funfact">
+          🔸 <em>Fun Fact:</em> Bumbu rica-rica Banda memakai cabai lokal yang aromanya lebih harum.
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Papeda -->
+    <div class="kuliner-item reverse">
+      <img src="img/papedabanda.jpg" alt="Papeda Banda">
+      <div class="keterangan">
+        <h2>Papeda Banda</h2>
+
+        <p>Makanan tradisional dari sagu, disajikan bersama kuah ikan kuning.</p>
+
+        <div class="info-box">
+          <strong>Info Tambahan:</strong><br>
+          • Asal: Maluku<br>
+          • Rasa: Netral & lembut<br>
+          • Tingkat pedas: Tidak pedas<br>
+          • Disajikan dengan: Ikan kuah kuning
+        </div>
+
+        <div class="funfact">
+          🔸 <em>Fun Fact:</em> Papeda dimakan dengan cara "diseruput", bukan menggunakan sendok biasa.
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Roti Kelapa -->
+    <div class="kuliner-item">
+      <img src="img/rotikelapabanda.jpg" alt="Roti Kelapa Banda">
+      <div class="keterangan">
+        <h2>Roti Kelapa Banda</h2>
+
+        <p>Roti manis dengan aroma kelapa segar khas Banda Neira.</p>
+
+        <div class="info-box">
+          <strong>Info Tambahan:</strong><br>
+          • Asal: Banda Neira<br>
+          • Rasa: Manis & Gurih<br>
+          • Tingkat pedas: Tidak pedas<br>
+          • Disajikan dengan: Kopi atau teh
+        </div>
+
+        <div class="funfact">
+          🔸 <em>Fun Fact:</em> Banyak warung lokal membuat roti kelapa dengan resep turun-temurun.
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Kopi Rempah -->
+    <div class="kuliner-item reverse">
+      <img src="img/kopirempahbanda.avif" alt="Kopi Rempah Banda">
+      <div class="keterangan">
+        <h2>Kopi Rempah Banda</h2>
+
+        <p>Kopi khas yang dicampur pala, cengkeh, dan kayu manis.</p>
+
+        <div class="info-box">
+          <strong>Info Tambahan:</strong><br>
+          • Asal: Banda Neira<br>
+          • Rasa: Hangat Rempah<br>
+          • Tingkat pedas: Tidak pedas<br>
+          • Disajikan dengan: Roti kelapa
+        </div>
+
+        <div class="funfact">
+          🔸 <em>Fun Fact:</em> Aromanya terkenal menghangatkan badan di malam hari.
+        </div>
+      </div>
+    </div>
+
+    <!-- TIPS -->
+    <div class="tips-section">
+      <h2>Tips Buat Wisatawan</h2>
+      <ul>
+        <li>Cobalah kuliner saat pagi hari untuk rasa paling segar.</li>
+        <li>Tanyakan level pedas karena cabai lokal terkadang lebih kuat.</li>
+        <li>Beli olahan pala sebagai oleh-oleh — tahan lama dan khas Banda.</li>
+        <li>Jangan lupa mampir ke pasar pagi untuk makanan lokal langka.</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h2>BANDA NEIRA</h2>
+        <p>Eksplorasi Keindahan Kepulauan Rempah</p>
+      </div>
+      <div class="footer-contact">
+        <h3>Kontak</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Kepulauan Banda, Maluku, Indonesia</p>
+        <p><i class="fas fa-phone"></i> +62 812 0000 0000</p>
+        <p><i class="fas fa-envelope"></i> info@bandaneira.site</p>
+      </div>
+      <div class="footer-social">
+        <h3>Ikuti Kami</h3>
+        <p><i class="fab fa-instagram"></i> Instagram: @bandaneira.site</p>
+        <p><i class="fab fa-facebook"></i> Facebook: Banda Neira Travel</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Wisata Banda Neira — Explore the Spice Islands
+    </div>
+  </footer>
+
+</body>
+</html>

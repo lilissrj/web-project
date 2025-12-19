@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Destinasi Banda Neira</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --primary: darkslategray;
+      --accent:#f4a261;
+      --dark:#1a2a3a;
+      --gray:#6c757d;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f4f6f8;
+      color:var(--dark);
+      line-height:1.7;
+    }
+
+    a{text-decoration:none}
+    img{width:100%;display:block}
+
+    /* ===== HEADER ===== */
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      height:80px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 40px;
+      background:var(--primary);
+      color:white;
+      z-index:1000;
+      box-shadow:0 4px 20px rgba(0,0,0,.15);
+    }
+
+    .logo{
+      font-family:'Playfair Display',serif;
+      font-size:20px;
+      letter-spacing:2px;
+      font-weight:700;
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:22px;
+    }
+
+    nav a{
+      color:white;
+      font-weight:600;
+      font-size:16px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      transition:.3s;
+    }
+
+    nav a:hover,
+    nav a.active{
+      color:coral;
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+      height:70vh;
+      min-height:420px;
+      padding-top:80px;
+      background:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+        url("img/hero.webp") center 60% / cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+    }
+
+    .hero h1{
+      font-family:'Playfair Display',serif;
+      font-size:42px;
+      margin-bottom:14px;
+    }
+
+    .hero p{
+      font-size:16px;
+      opacity:.9;
+    }
+
+    /* ===== MAIN ===== */
+    main{
+      max-width:1200px;
+      margin:auto;
+      padding:80px 20px;
+    }
+
+    .section-header{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-header h2{
+      font-family:'Playfair Display',serif;
+      font-size:36px;
+      margin-bottom:10px;
+      color:var(--primary);
+    }
+
+    .section-header p{
+      color:var(--gray);
+      font-size:15px;
+    }
+
+    /* ===== GRID DESTINASI ===== */
+    .destinations-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:32px;
+    }
+
+    .destination-card{
+      background:white;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 15px 35px rgba(0,0,0,.1);
+      transition:.35s ease;
+    }
+
+    .destination-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 25px 50px rgba(0,0,0,.15);
+    }
+
+    .destination-card img{
+      height:230px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:24px;
+    }
+
+    .badge{
+      display:inline-block;
+      background:var(--accent);
+      color:white;
+      padding:6px 16px;
+      border-radius:20px;
+      font-size:12px;
+      margin-bottom:12px;
+      font-weight:600;
+    }
+
+    .card-content h3{
+      font-family:'Playfair Display',serif;
+      margin-bottom:8px;
+      font-size:20px;
+      color:var(--primary);
+    }
+
+    .card-content p{
+      font-size:14px;
+      color:var(--gray);
+      margin-bottom:18px;
+    }
+
+    .card-content a{
+      display:inline-block;
+      padding:10px 26px;
+      background:var(--primary);
+      color:white;
+      border-radius:30px;
+      font-size:14px;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .card-content a:hover{
+      background:seagreen;
+    }
+
+    /* ===== FOOTER (SAMA DENGAN INDEX) ===== */
+    footer{
+      background:var(--primary);
+      color:white;
+      padding:35px 30px;
+      margin-top:80px;
+    }
+
+    .footer-container{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:25px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .footer-logo h2{
+      font-family:'Playfair Display',serif;
+      font-size:20px;
+      letter-spacing:1px;
+      margin:0;
+    }
+
+    .footer-logo p{
+      margin-top:5px;
+      font-size:14px;
+      opacity:.85;
+    }
+
+    footer h3{
+      margin-bottom:8px;
+      font-size:17px;
+    }
+
+    footer p{
+      margin:4px 0;
+      font-size:14px;
+    }
+
+    footer i{
+      margin-right:8px;
+      width:20px;
+      text-align:center;
+    }
+
+    .footer-bottom{
+      text-align:center;
+      padding-top:18px;
+      margin-top:18px;
+      border-top:1px solid rgba(255,255,255,.2);
+      font-size:13px;
+      opacity:.8;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:1100px){
+      .footer-container{
+        flex-direction:column;
+      }
+    }
+
+    @media(max-width:768px){
+      header{padding:0 25px}
+      .hero h1{font-size:32px}
+      nav ul{gap:15px;flex-wrap:wrap}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BANDA NEIRA</div>
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="destinasi.html" class="active"><i class="fas fa-map-marked-alt"></i> Destinasi</a></li>
+      <li><a href="kuliner.html"><i class="fas fa-utensils"></i> Kuliner</a></li>
+      <li><a href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+      <li><a href="kontak.html"><i class="fas fa-envelope"></i> Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Destinasi Banda Neira</h1>
+    <p>Eksplorasi keindahan alam & sejarah Kepulauan Rempah</p>
+  </div>
+</section>
+
+<main>
+  <div class="section-header">
+    <h2>Destinasi Populer</h2>
+    <p>6 destinasi utama yang wajib kamu kunjungi</p>
+  </div>
+
+  <section class="destinations-grid">
+
+    <article class="destination-card">
+      <img src="img/pulau-bandaneira2.webp">
+      <div class="card-content">
+        <span class="badge">Pulau Utama</span>
+        <h3>Pulau Banda Neira</h3>
+        <p>Pusat sejarah dan keindahan alam Kepulauan Banda.</p>
+        <a href="pulau-bandaneira.html">Lihat Detail</a>
+      </div>
+    </article>
+
+    <article class="destination-card">
+      <img src="img/benteng-belgica1.webp">
+      <div class="card-content">
+        <span class="badge">Sejarah</span>
+        <h3>Benteng Belgica</h3>
+        <p>Benteng berbentuk bintang peninggalan kolonial.</p>
+        <a href="benteng-belgica.html">Lihat Detail</a>
+      </div>
+    </article>
+
+    <article class="destination-card">
+      <img src="img/benteng-nassau2.jpg">
+      <div class="card-content">
+        <span class="badge">Warisan</span>
+        <h3>Benteng Nassau</h3>
+        <p>Benteng tertua pusat perdagangan rempah dunia.</p>
+        <a href="benteng-nassau.html">Lihat Detail</a>
+      </div>
+    </article>
+
+    <article class="destination-card">
+      <img src="img/gunung-apibanda2.jpg">
+      <div class="card-content">
+        <span class="badge">Petualangan</span>
+        <h3>Gunung Api Banda</h3>
+        <p>Pendakian dengan panorama matahari terbit.</p>
+        <a href="gunung-apibanda.html">Lihat Detail</a>
+      </div>
+    </article>
+
+    <article class="destination-card">
+      <img src="img/pulau-hatta1.jpg">
+      <div class="card-content">
+        <span class="badge">Bahari</span>
+        <h3>Pulau Hatta</h3>
+        <p>Pantai pasir putih dan snorkeling jernih.</p>
+        <a href="pulau-hatta.html">Lihat Detail</a>
+      </div>
+    </article>
+
+    <article class="destination-card">
+      <img src="img/spot-diving2.jpeg">
+      <div class="card-content">
+        <span class="badge">Diving</span>
+        <h3>Spot Diving & Snorkeling</h3>
+        <p>Surga bawah laut Banda Neira.</p>
+        <a href="spot-diving.html">Lihat Detail</a>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h2>BANDA NEIRA</h2>
+      <p>Eksplorasi Keindahan Kepulauan Rempah</p>
+    </div>
+
+    <div class="footer-contact">
+      <h3>Kontak</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Kepulauan Banda, Maluku, Indonesia</p>
+      <p><i class="fas fa-phone"></i> +62 812 0000 0000</p>
+      <p><i class="fas fa-envelope"></i> info@bandaneira.site</p>
+    </div>
+
+    <div class="footer-social">
+      <h3>Ikuti Kami</h3>
+      <p><i class="fab fa-instagram"></i> Instagram: @bandaneira.site</p>
+      <p><i class="fab fa-facebook"></i> Facebook: Banda Neira Travel</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Wisata Banda Neira — Explore the Spice Islands
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benteng Belgica - Banda Neira</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+  --primary: #2f4f4f;
+  --secondary: #5f8f8f;
+  --accent: #f4a261;
+  --light: #f8f9fa;
+  --dark: #1a2a3a;
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
+  color: var(--dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: darkslategray;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 0;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+nav a:hover {
+  color: coral;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 80vh;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.6)), url("img/benteng-belgica4.webp") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  margin-top: 0;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(transparent, #fafafa);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 25px;
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(244, 162, 97, 0.2);
+  border-radius: 25px;
+  backdrop-filter: blur(5px);
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  background: rgba(255,255,255,0.1);
+  padding: 12px 25px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+
+.stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* ===== MAIN ===== */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* CONTENT CONTAINER */
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 70px;
+}
+
+/* SECTION HEADER */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--primary);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: var(--accent);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.section-header p {
+  color: #666;
+  font-size: 17px;
+  max-width: 700px;
+  margin: 25px auto 0;
+  line-height: 1.8;
+}
+
+/* GALLERY SECTION */
+.gallery-section {
+  margin-bottom: 80px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  height: 280px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover {
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-5px);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  padding: 15px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery-caption p {
+  font-size: 13px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* CONTENT CARDS */
+.content-card {
+  background: white;
+  padding: 35px 30px;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  margin-bottom: 30px;
+  border-top: 4px solid var(--accent);
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+.content-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.content-card h3 i {
+  color: var(--accent);
+  font-size: 26px;
+}
+
+.content-card p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.highlight-text {
+  background: rgba(244, 162, 97, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+  margin: 20px 0;
+  font-style: italic;
+}
+
+/* INFO TABLE */
+.info-section {
+  margin-bottom: 80px;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  box-shadow: var(--card-shadow);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.info-table th {
+  background: var(--primary);
+  color: white;
+  text-align: left;
+  padding: 18px 25px;
+  font-weight: 600;
+  width: 30%;
+}
+
+.info-table td {
+  padding: 18px 25px;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+
+.info-table tr:last-child td {
+  border-bottom: none;
+}
+
+.info-table tr:hover td {
+  background: #f9f9f9;
+}
+
+/* LOKASI SECTION */
+.lokasi-section {
+  margin-bottom: 80px;
+}
+
+.lokasi-info {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: var(--card-shadow);
+  margin-top: 30px;
+}
+
+.lokasi-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.lokasi-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.lokasi-item:hover {
+  background: #f0f0f0;
+  transform: translateY(-5px);
+}
+
+.lokasi-item i {
+  color: var(--accent);
+  font-size: 24px;
+  margin-top: 5px;
+}
+
+.lokasi-content h4 {
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.lokasi-content p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* VISIT TIPS */
+.visit-tips {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 80px;
+  border-left: 5px solid var(--accent);
+}
+
+.visit-tips h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.tip-item:hover {
+  background: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.tip-item i {
+  color: var(--accent);
+  font-size: 22px;
+  margin-top: 5px;
+}
+
+.tip-content h4 {
+  font-size: 17px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.tip-content p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA SECTION */
+.cta-section {
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(95, 143, 143, 0.9)), url('img/foto-cta-kita.jpg') center/cover no-repeat;
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 80px;
+  box-shadow: var(--card-shadow);
+}
+
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background: forestgreen;
+  color: white;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 25px;
+  font-weight: 700;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: 2px solid forestgreen;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background: seagreen;
+  border-color: seagreen;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: darkslategray;
+  color: white;
+  padding: 35px 30px;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-logo h2 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.footer-logo p {
+  margin-top: 5px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+footer h3 {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+footer p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+footer i {
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 18px;
+  margin-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .content-container { grid-template-columns: 1fr; gap: 40px; }
+  .gallery { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .hero h1 { font-size: 46px; }
+}
+
+@media (max-width: 768px) {
+  header { padding: 15px 25px; }
+  nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+  .hero h1 { font-size: 36px; }
+  .hero-subtitle { font-size: 16px; }
+  .hero-stats { gap: 15px; }
+  .stat-item { padding: 10px 20px; }
+  .content-card { padding: 25px 20px; }
+  .section-header h2 { font-size: 30px; }
+  .footer-container { flex-direction: column; gap: 25px; }
+  .visit-tips { padding: 30px 20px; }
+  .lokasi-info { padding: 30px 20px; }
+  .cta-section { padding: 40px 20px; }
+  .cta-section h2 { font-size: 30px; }
+}
+
+@media (max-width: 480px) {
+  header { flex-direction: column; gap: 15px; padding: 15px 20px; }
+  .hero h1 { font-size: 32px; }
+  .hero { height: 70vh; }
+  .info-table th, .info-table td { padding: 12px 15px; font-size: 14px; }
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content { animation: fadeInUp 0.8s ease forwards; }
+.content-container { animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+.gallery-section { animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
+.info-section { animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }
+.lokasi-section { animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0; }
+.visit-tips { animation: fadeInUp 0.8s ease 1s forwards; opacity: 0; }
+.cta-section { animation: fadeInUp 0.8s ease 1.2s forwards; opacity: 0; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #5f8f8f; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2f4f4f; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BANDA NEIRA</div>
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="destinasi.html"><i class="fas fa-map-marked-alt"></i> Destinasi</a></li>
+      <li><a href="kuliner.html"><i class="fas fa-utensils"></i> Kuliner</a></li>
+      <li><a href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+      <li><a href="kontak.html"><i class="fas fa-envelope"></i> Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>Benteng Belgica</h1>
+    <div class="hero-subtitle">MONUMEN SEJARAH BANDA NEIRA</div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-value">1611</span>
+        <span class="stat-label">Tahun Dibangun</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">30 m</span>
+        <span class="stat-label">Tinggi Lokasi</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">5</span>
+        <span class="stat-label">Sudut Bastion</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- INTRODUCTION -->
+  <section class="section-header">
+    <h2>Benteng Belgica</h2>
+    <p>Peninggalan kolonial Belanda yang menjadi saksi kejayaan perdagangan rempah di Banda Neira</p>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <div class="content-container">
+    <div class="content-card">
+      <h3><i class="fas fa-history"></i> Sejarah Singkat</h3>
+      <p>
+        <strong>Benteng Belgica</strong> dibangun pada tahun 1611 oleh VOC (Vereenigde Oostindische Compagnie) 
+        untuk mengamankan perdagangan pala yang sangat berharga pada abad ke-17.
+      </p>
+      <p>
+        Benteng ini awalnya sederhana dan diperkuat beberapa kali seiring meningkatnya konflik dengan bangsa Eropa lain.
+      </p>
+      <div class="highlight-text">
+        Benteng Belgica adalah salah satu benteng kolonial tertua di Indonesia yang masih berdiri kokoh hingga kini.
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h3><i class="fas fa-archway"></i> Arsitektur</h3>
+      <p>
+        Benteng berbentuk <strong>bintang lima</strong> dengan bastion di setiap sudut, ciri khas arsitektur militer Belanda abad ke-17.
+      </p>
+      <p>
+        Dibangun dari batu karang dan kapur lokal, memiliki dinding tebal dan posisi strategis untuk pengawasan laut dan kota.
+      </p>
+    </div>
+  </div>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery-section">
+    <div class="section-header">
+      <h2>Galeri Benteng Belgica</h2>
+      <p>Rekam jejak sejarah yang terabadikan dalam gambar</p>
+    </div>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="img/benteng-belgica1.webp" alt="Benteng Belgica Panorama">
+        <div class="gallery-caption">
+          <p>Panorama Benteng Belgica dari udara</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/benteng-belgica3.jpg" alt="Detail Arsitektur">
+        <div class="gallery-caption">
+          <p>Detail arsitektur benteng yang masih terawat</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/benteng-belgica4.webp" alt="Pemandangan dari Benteng">
+        <div class="gallery-caption">
+          <p>Pemandangan Laut Banda dari puncak benteng</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO TABLE -->
+  <section class="info-section">
+    <div class="section-header">
+      <h2>Informasi Detail</h2>
+      <p>Data lengkap tentang Benteng Belgica</p>
+    </div>
+    <table class="info-table">
+      <tr>
+        <th>Lokasi</th>
+        <td>Pulau Banda Neira, Maluku Tengah, Maluku, Indonesia</td>
+      </tr>
+      <tr>
+        <th>Tahun Pembangunan</th>
+        <td>1611 (diperluas 1667)</td>
+      </tr>
+      <tr>
+        <th>Pembangun</th>
+        <td>VOC (Vereenigde Oostindische Compagnie)</td>
+      </tr>
+      <tr>
+        <th>Arsitektur</th>
+        <td>Bentuk bintang dengan 5 bastion</td>
+      </tr>
+      <tr>
+        <th>Material</th>
+        <td>Batu karang, batu kali, dan kapur</td>
+      </tr>
+      <tr>
+        <th>Luas Area</th>
+        <td>2.500 m²</td>
+      </tr>
+      <tr>
+        <th>Tinggi dari Permukaan Laut</th>
+        <td>30 meter</td>
+      </tr>
+      <tr>
+        <th>Status</th>
+        <td>Cagar Budaya Nasional (No. SK: 246/M/1999)</td>
+      </tr>
+      <tr>
+        <th>Aksesibilitas</th>
+        <td>Dapat dicapai dengan berjalan kaki ±15 menit dari pusat kota Banda Neira</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- LOKASI SECTION -->
+  <section class="lokasi-section">
+    <div class="section-header">
+      <h2>Lokasi & Akses</h2>
+      <p>Cara menuju Benteng Belgica</p>
+    </div>
+    <div class="lokasi-info">
+      <div class="lokasi-details">
+        <div class="lokasi-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="lokasi-content">
+            <h4>Lokasi</h4>
+            <p>Benteng Belgica terletak di puncak bukit kecil Pulau Banda Neira, menghadap ke laut dan kota.</p>
+          </div>
+        </div>
+        
+        <div class="lokasi-item">
+          <i class="fas fa-walking"></i>
+          <div class="lokasi-content">
+            <h4>Akses Jalan Kaki</h4>
+            <p>Dari pelabuhan Banda Neira, berjalan kaki ±15 menit melalui jalan setapak yang cukup mudah.</p>
+          </div>
+        </div>
+        
+        <div class="lokasi-item">
+          <i class="fas fa-clock"></i>
+          <div class="lokasi-content">
+            <h4>Waktu Kunjungan</h4>
+            <p>Buka setiap hari 08:00–17:00 WIT dan dapat dikunjungi oleh wisatawan.</p>
+          </div>
+        </div>
+        
+        <div class="lokasi-item">
+          <i class="fas fa-info-circle"></i>
+          <div class="lokasi-content">
+            <h4>Informasi Tambahan</h4>
+            <p>Pemandu lokal tersedia di lokasi untuk memberikan penjelasan sejarah benteng.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT TIPS -->
+  <section class="visit-tips">
+    <h3>Tips Berkunjung</h3>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <i class="fas fa-sun"></i>
+        <div class="tip-content">
+          <h4>Waktu Terbaik</h4>
+          <p>Pagi (07:00-10:00) atau sore (15:00-18:00) untuk menghindari terik matahari</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <i class="fas fa-shoe-prints"></i>
+        <div class="tip-content">
+          <h4>Alas Kaki</h4>
+          <p>Gunakan sepatu nyaman karena banyak tangga dan jalan berbatu</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <i class="fas fa-camera"></i>
+        <div class="tip-content">
+          <h4>Fotografi</h4>
+          <p>Bawa kamera untuk mengabadikan panorama laut dan arsitektur bersejarah</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <i class="fas fa-umbrella"></i>
+        <div class="tip-content">
+          <h4>Persiapan</h4>
+          <p>Bawa air minum, topi, dan sunscreen karena area benteng minim pepohonan</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <h2>Jelajahi Keindahan Banda Neira</h2>
+    <p>Benteng Belgica hanyalah satu dari banyak keajaiban yang menanti di Kepulauan Banda</p>
+    <a href="destinasi.html" class="btn-primary">Jelajahi Destinasi Lainnya</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h2>BANDA NEIRA</h2>
+      <p>Eksplorasi Keindahan Kepulauan Rempah</p>
+    </div>
+    <div class="footer-contact">
+      <h3>Kontak</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Kepulauan Banda, Maluku, Indonesia</p>
+      <p><i class="fas fa-phone"></i> +62 812 0000 0000</p>
+      <p><i class="fas fa-envelope"></i> info@bandaneira.site</p>
+    </div>
+    <div class="footer-social">
+      <h3>Ikuti Kami</h3>
+      <p><i class="fab fa-instagram"></i> Instagram: @bandaneira.site</p>
+      <p><i class="fab fa-facebook"></i> Facebook: Banda Neira Travel</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Wisata Banda Neira — Explore the Spice Islands
+  </div>
+</footer>
+
+<script>
+// Animasi scroll
+const sections = document.querySelectorAll('.content-container, .gallery-section, .info-section, .lokasi-section, .visit-tips, .cta-section');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+sections.forEach(section => {
+  section.style.opacity = '0';
+  observer.observe(section);
+});
+
+// Smooth scroll untuk anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 100,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

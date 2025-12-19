@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulau Banda Naira - Banda Neira</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+  --primary: #2f4f4f;
+  --secondary: #5f8f8f;
+  --accent: #f4a261;
+  --light: #f8f9fa;
+  --dark: #1a2a3a;
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: var(--dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: darkslategray;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 0;
+  position: relative;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== HERO ===== */
+.hero-pulau {
+  height: 85vh;
+  background: linear-gradient(105deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%), 
+              url("img/pulau-bandaneira1.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  margin-top: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-pulau h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 25px;
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(244, 162, 97, 0.2);
+  border-radius: 25px;
+  backdrop-filter: blur(5px);
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  background: rgba(255,255,255,0.1);
+  padding: 12px 25px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-3px);
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+
+.stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* ===== MAIN ===== */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* SECTION HEADER */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--primary);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: var(--accent);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.section-header p {
+  color: #666;
+  font-size: 17px;
+  max-width: 700px;
+  margin: 25px auto 0;
+  line-height: 1.8;
+}
+
+/* CONTENT CONTAINER */
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 70px;
+}
+
+/* GALLERY SECTION */
+.gallery-section {
+  margin-bottom: 80px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  height: 280px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover {
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-5px);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  padding: 15px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery-caption p {
+  font-size: 13px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* CONTENT CARDS */
+.content-card {
+  background: white;
+  padding: 35px 30px;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  margin-bottom: 30px;
+  border-top: 4px solid var(--accent);
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+.content-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.content-card h3 i {
+  color: var(--accent);
+  font-size: 26px;
+}
+
+.content-card p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.highlight-text {
+  background: rgba(244, 162, 97, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+  margin: 20px 0;
+  font-style: italic;
+}
+
+/* INFO GRID SECTION (Menggantikan tabel) */
+.info-grid-section {
+  margin-bottom: 80px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.info-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  border-left: 4px solid var(--accent);
+  transition: var(--transition);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+.info-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--primary);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-card h4 i {
+  color: var(--accent);
+  font-size: 22px;
+}
+
+.info-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* FEATURE SECTION */
+.feature-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 25px;
+  padding: 60px;
+  color: white;
+  margin-bottom: 80px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 30px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: var(--transition);
+}
+
+.feature-item:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-5px);
+}
+
+.feature-item i {
+  font-size: 40px;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.feature-item h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.feature-item p {
+  font-size: 14px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* VISIT TIPS */
+.visit-tips {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 80px;
+  border-left: 5px solid var(--accent);
+}
+
+.visit-tips h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.tip-item:hover {
+  background: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.tip-item i {
+  color: var(--accent);
+  font-size: 22px;
+  margin-top: 5px;
+}
+
+.tip-content h4 {
+  font-size: 17px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.tip-content p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA SECTION */
+.cta-section {
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(95, 143, 143, 0.9)), url('img/pulau-bandaneira2.webp') center/cover no-repeat;
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 80px;
+  box-shadow: var(--card-shadow);
+}
+
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background: forestgreen;
+  color: white;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 25px;
+  font-weight: 700;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: 2px solid forestgreen;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background: seagreen;
+  border-color: seagreen;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: darkslategray;
+  color: white;
+  padding: 35px 30px;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-logo h2 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.footer-logo p {
+  margin-top: 5px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+footer h3 {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+footer p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+footer i {
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 18px;
+  margin-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .content-container { grid-template-columns: 1fr; gap: 40px; }
+  .gallery { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .hero-pulau h1 { font-size: 46px; }
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .info-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  header { padding: 15px 25px; }
+  nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+  .hero-pulau h1 { font-size: 36px; }
+  .hero-subtitle { font-size: 16px; }
+  .hero-stats { gap: 15px; }
+  .stat-item { padding: 10px 20px; }
+  .content-card { padding: 25px 20px; }
+  .info-card { padding: 25px 20px; }
+  .section-header h2 { font-size: 30px; }
+  .footer-container { flex-direction: column; gap: 25px; }
+  .visit-tips { padding: 30px 20px; }
+  .feature-section { padding: 40px 25px; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 40px 20px; }
+  .cta-section h2 { font-size: 30px; }
+}
+
+@media (max-width: 480px) {
+  header { flex-direction: column; gap: 15px; padding: 15px 20px; }
+  .hero-pulau h1 { font-size: 32px; }
+  .hero-pulau { height: 70vh; }
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content { animation: fadeInUp 0.8s ease forwards; }
+.content-container { animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+.gallery-section { animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
+.info-grid-section { animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }
+.feature-section { animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0; }
+.visit-tips { animation: fadeInUp 0.8s ease 1s forwards; opacity: 0; }
+.cta-section { animation: fadeInUp 0.8s ease 1.2s forwards; opacity: 0; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #5f8f8f; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2f4f4f; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BANDA NEIRA</div>
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="destinasi.html"><i class="fas fa-map-marked-alt"></i> Destinasi</a></li>
+      <li><a href="kuliner.html"><i class="fas fa-utensils"></i> Kuliner</a></li>
+      <li><a href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+      <li><a href="kontak.html"><i class="fas fa-envelope"></i> Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero-pulau">
+  <div class="hero-content">
+    <h1>Pulau Banda Neira</h1>
+    <div class="hero-subtitle">PUSAT SEJARAH DAN KEINDAHAN ALAM KEPULAUAN REMPAH</div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-value">8.6 km²</span>
+        <span class="stat-label">Luas Pulau</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">+200</span>
+        <span class="stat-label">Spesies Ikan</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">500+ Tahun</span>
+        <span class="stat-label">Sejarah Rempah</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- INTRODUCTION -->
+  <section class="section-header">
+    <h2>Pulau Banda Neira</h2>
+    <p>Jantung dari Kepulauan Banda yang memadukan keindahan alam, sejarah kolonial, dan kekayaan budaya dalam satu destinasi yang memukau</p>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <div class="content-container">
+    <div class="content-card">
+      <h3><i class="fas fa-island-tropical"></i> Surga Alam Tropis</h3>
+      <p>
+        <strong>Pulau Banda Neira</strong> adalah pusat dari gugusan Kepulauan Banda yang dikelilingi oleh perairan biru kehijauan Laut Banda yang terkenal jernih. 
+        Pulau ini menawarkan pantai berpasir putih, perairan yang kaya biota laut, serta terumbu karang yang masih sangat terjaga.
+      </p>
+      <p>
+        Dengan ekosistem bawah laut yang masih alami, Pulau Banda Neira menjadi destinasi favorit untuk snorkeling dan diving dengan berbagai 
+        spot menarik seperti Batu Kapal dan Pulau Hatta.
+      </p>
+      <div class="highlight-text">
+        Banda Neira adalah salah satu dari sedikit tempat di Indonesia di mana Anda bisa menyaksikan sunset dengan latar belakang Gunung Api Banda 
+        yang berdiri megah di tengah laut.
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h3><i class="fas fa-landmark-historic"></i> Warisan Sejarah Kolonial</h3>
+      <p>
+        Sebagai pusat penghasil pala terbesar di dunia pada abad ke-17, Banda Neira menjadi rebutan bangsa Eropa. VOC membangun sistem pertahanan 
+        dengan mendirikan <strong>Benteng Belgica</strong> dan <strong>Benteng Nassau</strong> sebagai simbol kekuasaan dan pusat pengendalian perdagangan rempah.
+      </p>
+      <p>
+        Hingga kini, jejak kolonial masih terlihat jelas pada arsitektur bangunan-bangunan tua, jalan-jalan bersejarah, dan museum yang menyimpan 
+        cerita panjang tentang "Perang Rempah".
+      </p>
+    </div>
+  </div>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery-section">
+    <div class="section-header">
+      <h2>Keindahan Visual Banda Neira</h2>
+      <p>Dokumentasi panorama alam dan budaya yang memukau</p>
+    </div>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="img/pulau-bandaneira1.jpg" alt="Panorama Pulau Banda Neira">
+        <div class="gallery-caption">
+          <p>Panorama Pulau Banda Neira dari udara</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/pulau-bandaneira3.webp" alt="Pantai dan Perairan Banda">
+        <div class="gallery-caption">
+          <p>Pantai berpasir putih dan perairan jernih Banda Neira</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/pulau-bandaneira2.webp" alt="Pemukiman dan Pelabuhan">
+        <div class="gallery-caption">
+          <p>Pulau banda neira</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO GRID SECTION (Menggantikan tabel) -->
+  <section class="info-grid-section">
+    <div class="section-header">
+      <h2>Fakta & Informasi Pulau</h2>
+      <p>Data lengkap tentang karakteristik dan daya tarik Pulau Banda Neira</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4><i class="fas fa-map-marker-alt"></i> Lokasi & Geografi</h4>
+        <p>Berada di Kepulauan Banda, Laut Banda, Maluku Tengah dengan luas wilayah relatif kecil sebagai pusat permukiman Kepulauan Banda. Terletak sekitar pada koordinat 4°31′ S 129°54′ E.</p>
+      </div>
+      
+      <div class="info-card">
+        <h4><i class="fas fa-users"></i> Demografi</h4>
+        <p>Dihuni oleh ribuan penduduk dengan mata pencaharian utama nelayan, petani pala, dan pariwisata dengan mata pencaharian utama nelayan, petani pala, dan pariwisata.</p>
+      </div>
+      
+      <div class="info-card">
+        <h4><i class="fas fa-sun"></i> Iklim & Cuaca</h4>
+        <p>Iklim tropis dengan suhu rata-rata 26-30°C. Musim terbaik berkunjung adalah September-April saat laut tenang dan cuaca cerah.</p>
+      </div>
+      
+      <div class="info-card">
+        <h4><i class="fas fa-anchor"></i> Akses Transportasi</h4>
+        <p>Tersedia penerbangan ke Bandara Banda Neira dan kapal laut dari Ambon (6-8 jam). Transportasi lokal menggunakan perahu tradisional (jukung).</p>
+      </div>
+      
+      <div class="info-card">
+        <h4><i class="fas fa-water"></i> Daya Tarik Utama</h4>
+        <p>Pantai eksotis, snorkeling/diving, sejarah kolonial, budaya lokal, dan kuliner khas Banda.</p>
+      </div>
+      
+      <div class="info-card">
+        <h4><i class="fas fa-hotel"></i> Fasilitas & Akomodasi</h4>
+        <p>Tersedia berbagai pilihan hotel/penginapan, restoran, dive center, dan transportasi lokal untuk kenyamanan wisatawan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE SECTION -->
+  <section class="feature-section">
+    <div class="section-header">
+      <h2 style="color: white;">Keunikan Pulau Banda Neira</h2>
+      <p style="color: rgba(255,255,255,0.9);">Apa yang membuat pulau ini begitu istimewa</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <i class="fas fa-water"></i>
+        <h4>Surga Bawah Laut</h4>
+        <p>Rumah bagi terumbu karang sehat dan spesies ikan langka seperti ikan Napoleon dan hiu karang</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-history"></i>
+        <h4>Living Museum</h4>
+        <p>Jejak kolonial Belanda dan Portugis masih terpelihara dalam arsitektur dan budaya</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-seedling"></i>
+        <h4>Pusat Rempah Dunia</h4>
+        <p>Asal muasal pala berkualitas tinggi yang pernah menjadi komoditas termahal di dunia</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-umbrella-beach"></i>
+        <h4>Pantai Eksotis</h4>
+        <p>Pantai berpasir putih dengan air sebening kristal dan pemandangan gunung api</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT TIPS -->
+  <section class="visit-tips">
+    <h3>Tips Berkunjung & Rekomendasi</h3>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <i class="fas fa-ship"></i>
+        <div class="tip-content">
+          <h4>Transportasi Lokal</h4>
+          <p>Gunakan perahu tradisional (jukung) atau sewa kapal untuk mengeksplor pulau-pulau sekitarnya</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <i class="fas fa-user-shield"></i>
+        <div class="tip-content">
+          <h4>Pemandu Wisata</h4>
+          <p>Manfaatkan jasa pemandu lokal untuk pengalaman yang lebih autentik dan informasi akurat</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <i class="fas fa-snorkel"></i>
+        <div class="tip-content">
+          <h4>Perlengkapan Laut</h4>
+          <p>Sewa perlengkapan snorkeling/diving dari operator terpercaya dan jaga kelestarian terumbu karang</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <i class="fas fa-clock"></i>
+        <div class="tip-content">
+          <h4>Waktu Berkunjung</h4>
+          <p>Kunjungi spot utama pagi atau sore hari untuk cahaya terbaik fotografi dan menghindari keramaian</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <h2>Temukan Pesona Lainnya di Banda Neira</h2>
+    <p>Pulau Banda Neira hanyalah permulaan dari petualangan menakjubkan di Kepulauan Rempah</p>
+    <a href="destinasi.html" class="btn-primary">Jelajahi Semua Destinasi</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h2>BANDA NEIRA</h2>
+      <p>Eksplorasi Keindahan Kepulauan Rempah</p>
+    </div>
+    <div class="footer-contact">
+      <h3>Kontak</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Kepulauan Banda, Maluku, Indonesia</p>
+      <p><i class="fas fa-phone"></i> +62 812 0000 0000</p>
+      <p><i class="fas fa-envelope"></i> info@bandaneira.site</p>
+    </div>
+    <div class="footer-social">
+      <h3>Ikuti Kami</h3>
+      <p><i class="fab fa-instagram"></i> Instagram: @bandaneira.site</p>
+      <p><i class="fab fa-facebook"></i> Facebook: Banda Neira Travel</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Wisata Banda Neira — Explore the Spice Islands
+  </div>
+</footer>
+
+<script>
+// Animasi scroll
+const sections = document.querySelectorAll('.content-container, .gallery-section, .info-grid-section, .feature-section, .visit-tips, .cta-section');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+sections.forEach(section => {
+  section.style.opacity = '0';
+  observer.observe(section);
+});
+
+// Smooth scroll untuk anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 100,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Efek hover untuk stat items
+document.querySelectorAll('.stat-item').forEach(item => {
+  item.addEventListener('mouseenter', function() {
+    this.style.transform = 'translateY(-3px)';
+  });
+  item.addEventListener('mouseleave', function() {
+    this.style.transform = 'translateY(0)';
+  });
+});
+</script>
+
+</body>
+</html>

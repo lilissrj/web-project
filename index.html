@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Banda Neira</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --primary: #2f4f4f;
+      --secondary: #5f8f8f;
+      --accent: #f4a261;
+      --light: #f8f9fa;
+      --dark: #1a2a3a;
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0;}
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fafafa;
+      color: var(--dark);
+      line-height:1.7;
+    }
+
+    /* HEADER - SAMA UNTUK SEMUA HALAMAN */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      background: darkslategray;
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      margin: 0; padding: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 0;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a:hover {
+      color: coral;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(60%);
+    }
+
+    .hero .overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    .btn-primary {
+      background: forestgreen;
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 25px;
+      font-weight: 700;
+      display: inline-block;
+      transition: all 0.3s ease;
+      border: 2px solid forestgreen;
+    }
+
+    .btn-primary:hover {
+      background: seagreen;
+      border-color: seagreen;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* INTRODUCTION SECTION */
+    .intro-section {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 40px;
+    }
+
+    .intro-content {
+      text-align: center;
+      background: white;
+      padding: 50px 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-top: 4px solid var(--accent);
+    }
+
+    .intro-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: darkslategray;
+      margin-bottom: 20px;
+    }
+
+    .intro-content p {
+      font-size: 17px;
+      color: #444;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto 25px;
+    }
+
+    /* HIGHLIGHTS SECTION */
+    .highlights {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 40px;
+    }
+
+    .highlights h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: darkslategray;
+      margin-bottom: 40px;
+    }
+
+    .highlight-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .highlight-card {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--accent);
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .highlight-card i {
+      font-size: 40px;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .highlight-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: darkslategray;
+      margin-bottom: 15px;
+    }
+
+    .highlight-card p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* FOOTER - SAMA UNTUK SEMUA HALAMAN */
+    footer {
+      background: darkslategray;
+      color: white;
+      padding: 35px 30px;
+      margin-top: 80px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .footer-logo h2 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .footer-logo p {
+      margin-top: 5px;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    footer h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    footer p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+
+    footer i {
+      margin-right: 8px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 18px;
+      margin-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 1100px) {
+      .highlight-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-container {
+        flex-direction: column;
+        gap: 25px;
+      }
+    }
+
+    @media(max-width: 768px) {
+      header {
+        padding: 18px 25px;
+      }
+      
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .hero h1 {
+        font-size: 36px;
+      }
+      
+      .hero p {
+        font-size: 16px;
+      }
+      
+      .intro-section, .highlights {
+        padding: 0 20px;
+      }
+      
+      .intro-content {
+        padding: 40px 25px;
+      }
+      
+      .intro-content h2 {
+        font-size: 30px;
+      }
+      
+      .highlights h2 {
+        font-size: 30px;
+      }
+      
+      .highlight-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      
+      .hero h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">BANDA NEIRA</div>
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="destinasi.html"><i class="fas fa-map-marked-alt"></i> Destinasi</a></li>
+        <li><a href="kuliner.html"><i class="fas fa-utensils"></i> Kuliner</a></li>
+        <li><a href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+        <li><a href="kontak.html"><i class="fas fa-envelope"></i> Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="video/background.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay">
+      <h1>Jelajahi Banda Neira</h1>
+      <p>Pulau rempah penuh sejarah, keindahan alam, dan pesona budaya yang memikat.</p>
+      <a class="btn-primary" href="destinasi.html">Jelajahi Destinasi</a>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <section class="intro-section">
+    <div class="intro-content">
+      <h2>Selamat Datang di Banda Neira</h2>
+      <p>Banda Neira adalah bagian dari Kepulauan Banda di Maluku, Indonesia. Dikenal sebagai "Spice Islands", kepulauan ini adalah pusat perdagangan pala dan cengkeh dunia sejak abad ke-16. Dengan benteng kolonial, pantai eksotis, dan budaya yang kaya, Banda Neira menawarkan pengalaman wisata yang tak terlupakan.</p>
+      <p>Temukan keindahan alam bawah laut yang memukau, jelajahi sejarah panjang perdagangan rempah, dan nikmati keramahan masyarakat lokal yang hangat.</p>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights">
+    <h2>Apa yang Bisa Anda Temukan</h2>
+    <div class="highlight-cards">
+      <div class="highlight-card">
+        <i class="fas fa-landmark"></i>
+        <h3>Wisata Sejarah</h3>
+        <p>Jelajahi benteng kolonial seperti Benteng Belgica dan Nassau yang menjadi saksi bisu sejarah perdagangan rempah dunia.</p>
+      </div>
+      <div class="highlight-card">
+        <i class="fas fa-water"></i>
+        <h3>Wisata Bahari</h3>
+        <p>Nikmati keindahan terumbu karang dan biota laut yang memukau dengan snorkeling dan diving di perairan jernih Banda.</p>
+      </div>
+      <div class="highlight-card">
+        <i class="fas fa-utensils"></i>
+        <h3>Kuliner Khas</h3>
+        <p>Cicipi ragam kuliner tradisional berbahan dasar rempah-rempah khas Banda yang menggugah selera.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h2>BANDA NEIRA</h2>
+        <p>Eksplorasi Keindahan Kepulauan Rempah</p>
+      </div>
+      <div class="footer-contact">
+        <h3>Kontak</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Kepulauan Banda, Maluku, Indonesia</p>
+        <p><i class="fas fa-phone"></i> +62 812 0000 0000</p>
+        <p><i class="fas fa-envelope"></i> info@bandaneira.site</p>
+      </div>
+      <div class="footer-social">
+        <h3>Ikuti Kami</h3>
+        <p><i class="fab fa-instagram"></i> Instagram: @bandaneira.site</p>
+        <p><i class="fab fa-facebook"></i> Facebook: Banda Neira Travel</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Wisata Banda Neira — Explore the Spice Islands
+    </div>
+  </footer>
+
+</body>
+</html>

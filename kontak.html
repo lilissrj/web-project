@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontak - Banda Neira</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --primary: #2f4f4f;
+      --secondary: #5f8f8f;
+      --accent: #f4a261;
+      --light: #f8f9fa;
+      --dark: #1a2a3a;
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0;}
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      color: var(--dark);
+      line-height:1.7;
+    }
+
+    /* HEADER - SAMA UNTUK SEMUA HALAMAN */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      background: darkslategray;
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      margin: 0; padding: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 0;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a:hover {
+      color: coral;
+    }
+
+    /* HERO KONTAK DENGAN FOTO */
+    .hero-contact {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/pemandanganbanda-neira.jpeg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      margin-top: 0;
+      padding-top: 100px;
+      position: relative;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-contact h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-contact p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    /* MAIN CONTENT */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+
+    /* FORM SECTION */
+    .form-section {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .form-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: darkslategray;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.1);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      background: forestgreen;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      background: seagreen;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* INFO SECTION - DI SEDERHANAKAN */
+    .info-section {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .info-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: darkslategray;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-item i {
+      color: var(--accent);
+      font-size: 22px;
+      margin-top: 5px;
+      width: 30px;
+    }
+
+    .contact-detail h3 {
+      font-size: 18px;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .contact-detail p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .contact-detail a {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-detail a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 1100px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-section, .info-section {
+        padding: 30px;
+      }
+    }
+
+    @media(max-width: 768px) {
+      header {
+        padding: 18px 25px;
+      }
+      
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .hero-contact h1 {
+        font-size: 36px;
+      }
+      
+      .hero-contact p {
+        font-size: 16px;
+      }
+      
+      main {
+        padding: 40px 20px;
+      }
+      
+      .form-section h2, .info-section h2 {
+        font-size: 24px;
+      }
+    }
+
+    @media(max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      
+      .hero-contact {
+        height: 50vh;
+        padding-top: 80px;
+      }
+      
+      .hero-contact h1 {
+        font-size: 32px;
+      }
+      
+      .form-section, .info-section {
+        padding: 25px 20px;
+      }
+      
+      .contact-item {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    /* FOOTER - SAMA UNTUK SEMUA HALAMAN */
+    footer {
+      background: darkslategray;
+      color: white;
+      padding: 35px 30px;
+      margin-top: 80px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .footer-logo h2 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .footer-logo p {
+      margin-top: 5px;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    footer h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    footer p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+
+    footer i {
+      margin-right: 8px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 18px;
+      margin-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 13px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">BANDA NEIRA</div>
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="destinasi.html"><i class="fas fa-map-marked-alt"></i> Destinasi</a></li>
+        <li><a href="kuliner.html"><i class="fas fa-utensils"></i> Kuliner</a></li>
+        <li><a href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+        <li><a href="kontak.html"><i class="fas fa-envelope"></i> Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO KONTAK DENGAN FOTO -->
+  <section class="hero-contact">
+    <div class="hero-content">
+      <h1>Hubungi Kami</h1>
+      <p>Kami siap membantu Anda merencanakan perjalanan tak terlupakan ke Banda Neira. Tim kami akan dengan senang hati menjawab pertanyaan Anda.</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="contact-container">
+      <!-- FORM SECTION -->
+      <section class="form-section">
+        <h2>Kirim Pesan</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan nama lengkap" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Alamat Email</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="contoh@email.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subjek Pesan</label>
+            <input type="text" id="subject" name="subject" class="form-control" placeholder="Subjek pesan Anda" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Pesan Anda</label>
+            <textarea id="message" name="message" class="form-control" placeholder="Tulis pesan Anda di sini..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-paper-plane"></i> Kirim Pesan
+          </button>
+        </form>
+      </section>
+
+      <!-- INFO SECTION - DI SEDERHANAKAN -->
+      <section class="info-section">
+        <h2>Informasi Kontak</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="contact-detail">
+              <h3>Alamat</h3>
+              <p>Kepulauan Banda, Maluku, Indonesia</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div class="contact-detail">
+              <h3>Telepon</h3>
+              <p>+62 812 0000 0000</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div class="contact-detail">
+              <h3>Email</h3>
+              <p><a href="mailto:info@bandaneira.site">info@bandaneira.site</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-hashtag"></i>
+            <div class="contact-detail">
+              <h3>Ikuti Kami</h3>
+              <p>
+                Instagram: @bandaneira.site<br>
+                Facebook: Banda Neira Travel
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h2>BANDA NEIRA</h2>
+        <p>Eksplorasi Keindahan Kepulauan Rempah</p>
+      </div>
+      <div class="footer-contact">
+        <h3>Kontak</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Kepulauan Banda, Maluku, Indonesia</p>
+        <p><i class="fas fa-phone"></i> +62 812 0000 0000</p>
+        <p><i class="fas fa-envelope"></i> info@bandaneira.site</p>
+      </div>
+      <div class="footer-social">
+        <h3>Ikuti Kami</h3>
+        <p><i class="fab fa-instagram"></i> Instagram: @bandaneira.site</p>
+        <p><i class="fab fa-facebook"></i> Facebook: Banda Neira Travel</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Wisata Banda Neira — Explore the Spice Islands
+    </div>
+  </footer>
+
+  <script>
+    // Form submission handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Simple validation
+      if (!name || !email || !subject || !message) {
+        alert('Harap lengkapi semua field!');
+        return;
+      }
+      
+      // In a real application, you would send this data to a server
+      // For now, we'll just show a success message
+      alert('Terima kasih, ' + name + '! Pesan Anda telah dikirim. Kami akan membalas ke ' + email + ' segera.');
+      
+      // Reset form
+      document.getElementById('contactForm').reset();
+    });
+    
+    // Add some interactivity to contact items
+    document.querySelectorAll('.contact-item').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateX(10px)';
+        this.style.transition = 'transform 0.3s ease';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateX(0)';
+      });
+    });
+  </script>
+
+</body>
+</html>

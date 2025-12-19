@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gunung Api Banda - Banda Neira</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+  --primary: #2f4f4f;
+  --secondary: #5f8f8f;
+  --accent: #f4a261;
+  --light: #f8f9fa;
+  --dark: #1a2a3a;
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: var(--dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: darkslategray;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 0;
+  position: relative;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== HERO ===== */
+.hero-gunung {
+  height: 85vh;
+  background: linear-gradient(105deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%), 
+              url("img/gunung-apibanda1.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  margin-top: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-gunung h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 25px;
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(244, 162, 97, 0.2);
+  border-radius: 25px;
+  backdrop-filter: blur(5px);
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  background: rgba(255,255,255,0.1);
+  padding: 12px 25px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-3px);
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+
+.stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* ===== MAIN ===== */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* SECTION HEADER */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--primary);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: var(--accent);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.section-header p {
+  color: #666;
+  font-size: 17px;
+  max-width: 700px;
+  margin: 25px auto 0;
+  line-height: 1.8;
+}
+
+/* CONTENT CONTAINER */
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 70px;
+}
+
+/* GALLERY SECTION */
+.gallery-section {
+  margin-bottom: 80px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  height: 280px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover {
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-5px);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  padding: 15px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery-caption p {
+  font-size: 13px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* CONTENT CARDS */
+.content-card {
+  background: white;
+  padding: 35px 30px;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  margin-bottom: 30px;
+  border-top: 4px solid var(--accent);
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+.content-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.content-card h3 i {
+  color: var(--accent);
+  font-size: 26px;
+}
+
+.content-card p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.highlight-text {
+  background: rgba(244, 162, 97, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+  margin: 20px 0;
+  font-style: italic;
+}
+
+/* INFO TABLE */
+.info-section {
+  margin-bottom: 80px;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  box-shadow: var(--card-shadow);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.info-table th {
+  background: var(--primary);
+  color: white;
+  text-align: left;
+  padding: 18px 25px;
+  font-weight: 600;
+  width: 30%;
+}
+
+.info-table td {
+  padding: 18px 25px;
+  border-bottom: 1px solid #eee;
+  background: white;
+}
+
+.info-table tr:last-child td {
+  border-bottom: none;
+}
+
+.info-table tr:hover td {
+  background: #f9f9f9;
+}
+
+/* FEATURE SECTION */
+.feature-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 25px;
+  padding: 60px;
+  color: white;
+  margin-bottom: 80px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 30px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: var(--transition);
+}
+
+.feature-item:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-5px);
+}
+
+.feature-item i {
+  font-size: 40px;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.feature-item h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.feature-item p {
+  font-size: 14px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* VISIT TIPS */
+.visit-tips {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 80px;
+  border-left: 5px solid var(--accent);
+}
+
+.visit-tips h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.tip-item:hover {
+  background: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.tip-item i {
+  color: var(--accent);
+  font-size: 22px;
+  margin-top: 5px;
+}
+
+.tip-content h4 {
+  font-size: 17px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.tip-content p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA SECTION */
+.cta-section {
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(95, 143, 143, 0.9)), url('img/gunung-apibanda2.jpg') center/cover no-repeat;
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 80px;
+  box-shadow: var(--card-shadow);
+}
+
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background: forestgreen;
+  color: white;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 25px;
+  font-weight: 700;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: 2px solid forestgreen;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background: seagreen;
+  border-color: seagreen;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: darkslategray;
+  color: white;
+  padding: 35px 30px;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-logo h2 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.footer-logo p {
+  margin-top: 5px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+footer h3 {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+footer p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+footer i {
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 18px;
+  margin-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .content-container { grid-template-columns: 1fr; gap: 40px; }
+  .gallery { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .hero-gunung h1 { font-size: 46px; }
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  header { padding: 15px 25px; }
+  nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+  .hero-gunung h1 { font-size: 36px; }
+  .hero-subtitle { font-size: 16px; }
+  .hero-stats { gap: 15px; }
+  .stat-item { padding: 10px 20px; }
+  .content-card { padding: 25px 20px; }
+  .section-header h2 { font-size: 30px; }
+  .footer-container { flex-direction: column; gap: 25px; }
+  .visit-tips { padding: 30px 20px; }
+  .feature-section { padding: 40px 25px; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 40px 20px; }
+  .cta-section h2 { font-size: 30px; }
+}
+
+@media (max-width: 480px) {
+  header { flex-direction: column; gap: 15px; padding: 15px 20px; }
+  .hero-gunung h1 { font-size: 32px; }
+  .hero-gunung { height: 70vh; }
+  .info-table th, .info-table td { padding: 12px 15px; font-size: 14px; }
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content { animation: fadeInUp 0.8s ease forwards; }
+.content-container { animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+.gallery-section { animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
+.info-section { animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }
+.feature-section { animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0; }
+.visit-tips { animation: fadeInUp 0.8s ease 1s forwards; opacity: 0; }
+.cta-section { animation: fadeInUp 0.8s ease 1.2s forwards; opacity: 0; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #5f8f8f; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2f4f4f; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BANDA NEIRA</div>
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="destinasi.html"><i class="fas fa-map-marked-alt"></i> Destinasi</a></li>
+      <li><a href="kuliner.html"><i class="fas fa-utensils"></i> Kuliner</a></li>
+      <li><a href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+      <li><a href="kontak.html"><i class="fas fa-envelope"></i> Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero-gunung">
+  <div class="hero-content">
+    <h1>Gunung Api Banda</h1>
+    <div class="hero-subtitle">MONUMEN ALAM BANDA NEIRA YANG MEGAH</div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-value">656 m</span>
+        <span class="stat-label">Ketinggian</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">Aktif</span>
+        <span class="stat-label">Status Vulkanik</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">1988</span>
+        <span class="stat-label">Letusan Terakhir</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- INTRODUCTION -->
+  <section class="section-header">
+    <h2>Gunung Api Banda</h2>
+    <p>Gunung berapi aktif yang menjadi ikon alam Kepulauan Banda dengan pemandangan dramatis yang memukau</p>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <div class="content-container">
+    <div class="content-card">
+      <h3><i class="fas fa-mountain"></i> Profil Gunung</h3>
+      <p>
+        <strong>Gunung Api Banda</strong> merupakan gunung berapi aktif yang berdiri megah di tengah Laut Banda. 
+        Dengan ketinggian sekitar 656 meter di atas permukaan laut, gunung ini menjadi landmark alam 
+        yang dapat dilihat dari seluruh Kepulauan Banda.
+      </p>
+      <p>
+        Keberadaannya sangat berpengaruh terhadap sejarah geologi dan kehidupan masyarakat Banda, 
+        baik dari sisi kesuburan tanah maupun potensi bencana alam.
+      </p>
+      <div class="highlight-text">
+        Gunung Api Banda adalah salah satu dari sedikit gunung berapi di dunia yang terletak tepat di tengah laut, 
+        menciptakan pemandangan spektakuler yang tak terlupakan.
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h3><i class="fas fa-fire"></i> Aktivitas Vulkanik</h3>
+      <p>
+        Gunung ini tergolong <strong>Aktif (Status Waspada)</strong> dengan catatan letusan terakhir pada tahun <strong>1988</strong>. 
+        Aktivitas kawah masih dapat diamati berupa uap panas dan aroma belerang yang keluar dari celah-celah batuan.
+      </p>
+      <p>
+        Berdasarkan data Pusat Vulkanologi dan Mitigasi Bencana Geologi, Gunung Api Banda berada dalam status 
+        "Waspada" dengan rekomendasi zona aman yang harus dipatuhi oleh pengunjung.
+      </p>
+    </div>
+  </div>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery-section">
+    <div class="section-header">
+      <h2>Keindahan Alam yang Menakjubkan</h2>
+      <p>Dokumentasi visual dari keagungan Gunung Api Banda</p>
+    </div>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="img/gunung-apibanda1.jpg" alt="Gunung Api Banda Panorama">
+        <div class="gallery-caption">
+          <p>Panorama Gunung Api Banda dari kejauhan</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/gunung-apibanda2.jpg" alt="Detail Puncak Gunung">
+        <div class="gallery-caption">
+          <p>Detail puncak gunung dengan aktivitas vulkanik</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/gunung-apibanda3.webp" alt="Pemandangan dari Laut">
+        <div class="gallery-caption">
+          <p>Pemandangan dramatis dari sisi laut</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO TABLE -->
+  <section class="info-section">
+    <div class="section-header">
+      <h2>Data Vulkanologi</h2>
+      <p>Informasi detail tentang Gunung Api Banda</p>
+    </div>
+    <table class="info-table">
+      <tr>
+        <th>Nama Resmi</th>
+        <td>Gunung Api Banda</td>
+      </tr>
+      <tr>
+        <th>Lokasi</th>
+        <td>Kepulauan Banda, Laut Banda, Maluku Tengah, Indonesia</td>
+      </tr>
+      <tr>
+        <th>Koordinat</th>
+        <td>4°31' LS, 129°52' BT</td>
+      </tr>
+      <tr>
+        <th>Ketinggian</th>
+        <td>656 meter di atas permukaan laut</td>
+      </tr>
+      <tr>
+        <th>Status Vulkanik</th>
+        <td>Aktif (Status Waspada)</td>
+      </tr>
+      <tr>
+        <th>Tipe Gunung</th>
+        <td>Stratovolcano (Gunung Berapi Strato)</td>
+      </tr>
+      <tr>
+        <th>Letusan Terakhir</th>
+        <td>1988 (Erupsi kecil)</td>
+      </tr>
+      <tr>
+        <th>Jenis Erupsi</th>
+        <td>Erupsi magmatik dan freatik</td>
+      </tr>
+      <tr>
+        <th>Zona Bahaya</th>
+        <td>Radius 1.5 km dari puncak kawah</td>
+      </tr>
+      <tr>
+        <th>Akses Pendakian</th>
+        <td>Ditempuh dengan perahu dari Banda Neira (±45 menit) dilanjutkan pendakian (±2 jam)</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- FEATURE SECTION -->
+  <section class="feature-section">
+    <div class="section-header">
+      <h2 style="color: white;">Keunikan Gunung Api Banda</h2>
+      <p style="color: rgba(255,255,255,0.9);">Apa yang membuat gunung ini begitu istimewa</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <i class="fas fa-water"></i>
+        <h4>Gunung Laut</h4>
+        <p>Satu-satunya gunung berapi aktif di Indonesia yang berada tepat di tengah laut</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-history"></i>
+        <h4>Sejarah Panjang</h4>
+        <p>Catatan letusan sejak abad ke-17 yang membentuk Kepulauan Banda</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-seedling"></i>
+        <h4>Ekosistem Unik</h4>
+        <p>Tanah vulkanik yang subur mendukung kehidupan flora dan fauna endemik</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-camera"></i>
+        <h4>Fotografi</h4>
+        <p>Spot fotografi terbaik untuk landscape dengan cahaya matahari terbit/terbenam</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT TIPS -->
+  <section class="visit-tips">
+    <h3>Tips Pendakian & Keamanan</h3>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <i class="fas fa-clock"></i>
+        <div class="tip-content">
+          <h4>Waktu Terbaik</h4>
+          <p>Pendakian sebaiknya dilakukan pagi hari (06:00-10:00) untuk menghindari panas terik dan kabut</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <i class="fas fa-user-shield"></i>
+        <div class="tip-content">
+          <h4>Pemandu Lokal</h4>
+          <p>Selalu gunakan jasa pemandu lokal yang berpengalaman dan mengerti kondisi medan</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <i class="fas fa-shoe-prints"></i>
+        <div class="tip-content">
+          <h4>Perlengkapan</h4>
+          <p>Gunakan sepatu gunung, bawa air minum minimal 2 liter, dan perlengkapan P3K</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <i class="fas fa-exclamation-triangle"></i>
+        <div class="tip-content">
+          <h4>Keselamatan</h4>
+          <p>Patuhi zona bahaya, jauhi area kawah aktif, dan perhatikan perubahan aktivitas vulkanik</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <h2>Jelajahi Keajaiban Alam Banda Neira</h2>
+    <p>Gunung Api Banda hanyalah satu dari banyak keindahan alam yang menanti di Kepulauan Banda</p>
+    <a href="destinasi.html" class="btn-primary">Jelajahi Destinasi Lainnya</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h2>BANDA NEIRA</h2>
+      <p>Eksplorasi Keindahan Kepulauan Rempah</p>
+    </div>
+    <div class="footer-contact">
+      <h3>Kontak</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Kepulauan Banda, Maluku, Indonesia</p>
+      <p><i class="fas fa-phone"></i> +62 812 0000 0000</p>
+      <p><i class="fas fa-envelope"></i> info@bandaneira.site</p>
+    </div>
+    <div class="footer-social">
+      <h3>Ikuti Kami</h3>
+      <p><i class="fab fa-instagram"></i> Instagram: @bandaneira.site</p>
+      <p><i class="fab fa-facebook"></i> Facebook: Banda Neira Travel</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Wisata Banda Neira — Explore the Spice Islands
+  </div>
+</footer>
+
+<script>
+// Animasi scroll
+const sections = document.querySelectorAll('.content-container, .gallery-section, .info-section, .feature-section, .visit-tips, .cta-section');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+sections.forEach(section => {
+  section.style.opacity = '0';
+  observer.observe(section);
+});
+
+// Smooth scroll untuk anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 100,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Efek hover untuk stat items
+document.querySelectorAll('.stat-item').forEach(item => {
+  item.addEventListener('mouseenter', function() {
+    this.style.transform = 'translateY(-3px)';
+  });
+  item.addEventListener('mouseleave', function() {
+    this.style.transform = 'translateY(0)';
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benteng Nassau - Banda Neira</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --primary: #2f4f4f;
+  --secondary: #5f8f8f;
+  --accent: #f4a261;
+  --light: #f8f9fa;
+  --dark: #1a2a3a;
+  --transition: all 0.3s ease;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: var(--dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+/* ===== HEADER - SAMA ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: darkslategray;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: white;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 0;
+  position: relative;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+nav a:hover {
+  color: coral;
+}
+/* ===== HERO - TETAP SPLIT LAYOUT ===== */
+.hero-nassau {
+  height: 85vh;
+  background: linear-gradient(105deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%), 
+              url("img/benteng-nassau2.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  color: white;
+  position: relative;
+  margin-top: 0;
+}
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero-text {
+  animation: slideInLeft 1s ease forwards;
+}
+.hero-stats-container {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(255,255,255,0.2);
+  animation: slideInRight 1s ease forwards;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  line-height: 1.1;
+}
+.hero-subtitle {
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 30px;
+  display: block;
+  text-transform: uppercase;
+}
+.hero-description {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+.stat-item {
+  text-align: center;
+  padding: 25px 20px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 15px;
+  transition: var(--transition);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.stat-item:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-5px);
+}
+.stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
+}
+.stat-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.9;
+}
+/* ===== MAIN - TANPA BANYAK BOX CARD ===== */
+main {
+  max-width: 1200px;
+  margin: -80px auto 0;
+  padding: 0 20px 80px;
+  position: relative;
+  z-index: 10;
+}
+/* SECTION HEADER GLOBAL */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+.section-header p {
+  color: #666;
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+/* 1. TIMELINE - DIKEMAS LEBIH RAPI */
+.history-timeline {
+  background: white;
+  border-radius: 25px;
+  padding: 60px 50px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.timeline-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.timeline-flow::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.timeline-item-flow {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+}
+.timeline-item-flow:nth-child(odd) {
+  flex-direction: row;
+}
+.timeline-item-flow:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  flex-shrink: 0;
+  z-index: 2;
+}
+.timeline-content-flow {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 15px;
+  border-left: 5px solid var(--accent);
+}
+.timeline-year-flow {
+  background: var(--accent);
+  color: white;
+  padding: 6px 18px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 14px;
+}
+/* 2. CONTENT BLOCK - FULL WIDTH TANPA IMAGE SAMPING */
+.content-full {
+  margin-bottom: 80px;
+}
+.feature-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.feature-showcase-item {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.feature-showcase-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.feature-icon-large {
+  flex-shrink: 0;
+}
+.feature-icon-large i {
+  font-size: 60px;
+  color: var(--accent);
+}
+.feature-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.feature-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 15px;
+}
+/* 3. GALLERY - MINIMALIS, FULL WIDTH */
+.gallery-section-nassau {
+  margin-bottom: 80px;
+}
+.gallery-masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.gallery-item-masonry {
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  height: 250px;
+}
+.gallery-item-masonry img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery-item-masonry:hover img {
+  transform: scale(1.05);
+}
+.gallery-caption-simple {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: white;
+  padding: 15px;
+  font-style: italic;
+  font-size: 13px;
+}
+/* 4. VISIT INFO - LIST SEDERHANA */
+.visit-info {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 25px;
+  padding: 60px;
+  color: white;
+  margin-bottom: 80px;
+}
+.info-list {
+  max-width: 800px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.info-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: var(--transition);
+}
+.info-list-item:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateX(10px);
+}
+.info-list-item i {
+  font-size: 28px;
+  color: var(--accent);
+  margin-top: 5px;
+}
+.info-detail h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: white;
+}
+.info-detail p {
+  font-size: 15px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+.disclaimer-note {
+  margin-top: 30px;
+  padding: 15px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.9;
+}
+/* 5. TIPS - GRID SEDERHANA */
+.tips-section {
+  margin-bottom: 80px;
+}
+.tips-grid-minimal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+.tip-item-minimal {
+  padding: 25px;
+  background: white;
+  border-radius: 15px;
+  border-top: 3px solid var(--accent);
+}
+.tip-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.tip-header i {
+  font-size: 24px;
+  color: var(--accent);
+}
+.tip-header h4 {
+  font-size: 18px;
+  color: var(--primary);
+}
+.tip-item-minimal p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+/* 6. CTA SECTION - TAMBAHAN */
+.cta-section-nassau {
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(95, 143, 143, 0.9)), url('img/foto-cta-kita.jpg') center/cover no-repeat;
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 80px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  animation: fadeInUp 0.8s ease 1.2s forwards;
+  opacity: 0;
+}
+.cta-section-nassau h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.cta-section-nassau p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+.btn-primary-nassau {
+  background: forestgreen;
+  color: white;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 25px;
+  font-weight: 700;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: 2px solid forestgreen;
+  font-size: 16px;
+}
+.btn-primary-nassau:hover {
+  background: seagreen;
+  border-color: seagreen;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+/* ===== FOOTER - SAMA ===== */
+footer {
+  background: darkslategray;
+  color: white;
+  padding: 35px 30px;
+  margin-top: 80px;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+.footer-logo h2 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.footer-logo p {
+  margin-top: 5px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+footer h3 {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+footer p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+footer i {
+  margin-right: 8px;
+  width: 20px;
+  text-align: center;
+}
+.footer-bottom {
+  text-align: center;
+  padding-top: 18px;
+  margin-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 13px;
+  opacity: 0.8;
+}
+/* RESPONSIVE DESIGN */
+@media (max-width: 1100px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .timeline-flow::before {
+    left: 30px;
+  }
+  .timeline-item-flow {
+    flex-direction: row !important;
+    gap: 20px;
+  }
+  .timeline-dot {
+    margin-left: 20px;
+  }
+  .feature-showcase-item {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .feature-showcase-item:nth-child(even) {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  header { padding: 15px 25px; }
+  nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+  .hero h1 { font-size: 48px; }
+  .hero-subtitle { font-size: 18px; }
+  .hero-stats { grid-template-columns: 1fr; }
+  .history-timeline,
+  .visit-info { padding: 40px 25px; }
+  .gallery-masonry { grid-template-columns: 1fr; }
+  .cta-section-nassau { padding: 40px 25px; }
+  .cta-section-nassau h2 { font-size: 30px; }
+  .footer-container { flex-direction: column; gap: 25px; }
+}
+@media (max-width: 480px) {
+  header { flex-direction: column; gap: 15px; padding: 15px 20px; }
+  .hero h1 { font-size: 36px; }
+  .hero-nassau { height: auto; padding: 100px 20px 60px; }
+  .hero-stats-container { padding: 30px 20px; }
+  main { margin-top: -40px; }
+  .feature-text { padding: 20px; }
+  .cta-section-nassau h2 { font-size: 26px; }
+  .btn-primary-nassau { padding: 12px 24px; font-size: 15px; }
+}
+/* ANIMATIONS */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-text { animation: slideInLeft 1s ease forwards; }
+.hero-stats-container { animation: slideInRight 1s ease forwards; }
+.history-timeline { animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+.content-full { animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
+.gallery-section-nassau { animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }
+.visit-info { animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0; }
+.tips-section { animation: fadeInUp 0.8s ease 1s forwards; opacity: 0; }
+.cta-section-nassau { animation: fadeInUp 0.8s ease 1.2s forwards; opacity: 0; }
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #5f8f8f; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2f4f4f; }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">BANDA NEIRA</div>
+  <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="destinasi.html"><i class="fas fa-map-marked-alt"></i> Destinasi</a></li>
+      <li><a href="kuliner.html"><i class="fas fa-utensils"></i> Kuliner</a></li>
+      <li><a href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+      <li><a href="kontak.html"><i class="fas fa-envelope"></i> Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="hero-nassau">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Benteng Nassau</h1>
+      <span class="hero-subtitle">SALAH SATU BENTENG AWAL VOC DI BANDA</span>
+      <p class="hero-description">
+        Dibangun pada tahun 1611 di kawasan yang sebelumnya digunakan untuk aktivitas Portugis, Benteng Nassau menjadi 
+        pusat kekuatan VOC dalam mengendalikan perdagangan rempah di Kepulauan Banda.
+      </p>
+    </div>
+    <div class="hero-stats-container">
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-value">1611</span>
+          <span class="stat-label">Tahun Berdiri</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">±1.8 ha</span>
+          <span class="stat-label">Luas Area</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">4</span>
+          <span class="stat-label">Bastion Utama</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">Puluhan</span>
+          <span class="stat-label">Meriam</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<main>
+  <!-- 1. TIMELINE VERTICAL -->
+  <section class="history-timeline">
+    <div class="section-header">
+      <h2>Jejak Sejarah Panjang</h2>
+      <p>Perjalanan Benteng Nassau dari masa Portugis hingga menjadi destinasi wisata sejarah</p>
+    </div>
+    <div class="timeline-flow">
+      <div class="timeline-item-flow">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content-flow">
+          <div class="timeline-year-flow">Awal 1600-an</div>
+          <h3>Masa Portugis</h3>
+           <p>Sebelum kedatangan VOC, Portugis telah melakukan aktivitas perdagangan di Kepulauan Banda dan membangun 
+            fasilitas sederhana di kawasan ini.</p>
+        </div>
+      </div>
+      <div class="timeline-item-flow">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content-flow">
+          <div class="timeline-year-flow">1611</div>
+          <h3>Pembangunan oleh VOC</h3>
+          <p>VOC mengambil alih dan membangun benteng permanen dengan nama "Nassau", mengukuhkan kekuasaan mereka atas perdagangan rempah.</p>
+        </div>
+      </div>
+      <div class="timeline-item-flow">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content-flow">
+          <div class="timeline-year-flow">1621</div>
+          <h3>Pusat Komando</h3>
+          <p>Benteng Nassau berperan sebagai pusat aktivitas VOC pada masa konflik besar di Kepulauan Banda tahun 1621, yang menjadi bagian penting 
+            dalam sejarah kolonial wilayah ini.</p>
+        </div>
+      </div>
+      <div class="timeline-item-flow">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content-flow">
+          <div class="timeline-year-flow">1942-1945</div>
+          <h3>Pendudukan Jepang</h3>
+          <p>Benteng dikuasai pasukan Jepang selama Perang Dunia II, menambahkan lapisan sejarah baru pada bangunan ini.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 2. CONTENT FULL WIDTH -->
+  <section class="content-full">
+    <div class="section-header">
+      <h2>Arsitektur & Lokasi Strategis</h2>
+      <p>Keunikan desain dan posisi Benteng Nassau yang tak tergantikan</p>
+    </div>
+    <div class="feature-showcase">
+      <div class="feature-showcase-item">
+        <div class="feature-icon-large">
+          <i class="fas fa-archway"></i>
+        </div>
+        <div class="feature-text">
+          <h3>Arsitektur Abad ke-17</h3>
+          <p>Benteng Nassau memiliki desain persegi klasik dengan 4 bastion di setiap sudutnya, ciri khas benteng pertahanan Eropa pada masa itu. Ketebalan dinding yang dibangun dari batu karang lokal
+             yang diambil dari pulau sekitar, menjadikannya kokoh dan tahan lama.</p>
+          <p>Sistem parit dan pos pengamatan yang dirancang secara strategis memungkinkan pengawasan wilayah sekitar Laut Banda, 
+            menjadikannya benteng yang sangat efektif untuk masa itu.</p>
+        </div>
+      </div>
+      <div class="feature-showcase-item">
+        <div class="feature-icon-large">
+          <i class="fas fa-map-marked-alt"></i>
+        </div>
+        <div class="feature-text">
+          <h3>Lokasi yang Menguasai Panorama</h3>
+          <p>Terletak di jantung Pulau Banda Neira, benteng ini memiliki posisi yang sangat strategis. Dari atas benteng, pengunjung dapat menyaksikan pemandangan spektakuler Gunung Api Banda, Pulau Hatta (Rozengain), serta jalur pelayaran utama yang ramai pada masa kejayaan rempah.</p>
+          <p>Dapat dicapai dengan berjalan kaki dari pusat kota menjadikannya destinasi yang wajib dikunjungi. Jalan setapak yang menanjak membawa pengunjung melalui pemandangan perkampungan lokal sebelum tiba di gerbang sejarah ini.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 3. GALLERY MASONRY -->
+  <section class="gallery-section-nassau">
+    <div class="section-header">
+      <h2>Momentum Sejarah</h2>
+      <p>Dokumentasi visual keindahan dan peninggalan Benteng Nassau</p>
+    </div>
+    <div class="gallery-masonry">
+      <div class="gallery-item-masonry">
+        <img src="img/benteng-nassau2.jpg" alt="Tampak Depan Benteng Nassau">
+        <div class="gallery-caption-simple">Gerbang utama dengan arsitektur khas Belanda</div>
+      </div>
+      <div class="gallery-item-masonry">
+        <img src="img/benteng-nassau3.jpg" alt="Detail Bastion">
+        <div class="gallery-caption-simple">Salah satu bastion yang masih kokoh berdiri</div>
+      </div>
+      <div class="gallery-item-masonry">
+        <img src="img/benteng-nassau1.png" alt="Pemandangan dari Benteng">
+        <div class="gallery-caption-simple">Pemandangan Laut Banda dari atas benteng</div>
+      </div>
+    </div>
+  </section>
+  <!-- 4. VISIT INFO LIST -->
+  <section class="visit-info">
+    <div class="section-header">
+      <h2 style="color: white;">Informasi Kunjungan</h2>
+      <p style="color: rgba(255,255,255,0.9);">Semua yang perlu Anda ketahui sebelum berkunjung</p>
+    </div>
+    <div class="info-list">
+      <div class="info-list-item">
+        <i class="fas fa-clock"></i>
+        <div class="info-detail">
+          <h4>Jam Kunjungan</h4>
+          <p>Benteng Nassau tidak memiliki jam operasional resmi. Waktu terbaik untuk berkunjung adalah pagi atau sore hari.</p>
+        </div>
+      </div>
+      <div class="info-list-item">
+        <i class="fas fa-ticket-alt"></i>
+        <div class="info-detail">
+          <h4>Tiket Masuk</h4>
+          <p>Tidak terdapat informasi resmi mengenai tiket masuk. Pengunjung dapat menjelajahi area benteng secara bebas.</p>
+        </div>
+      </div>
+      <div class="info-list-item">
+        <i class="fas fa-hiking"></i>
+        <div class="info-detail">
+          <h4>Akses & Lokasi</h4>
+          <p>Berlokasi di pusat Pulau Banda Neira, hanya 10 menit berjalan kaki dari kota utama. Jalan setapak dengan tangga batu cukup landai dan cocok untuk pengunjung segala usia. Tidak tersedia fasilitas parkir khusus kendaraan.</p>
+        </div>
+      </div>
+      <div class="disclaimer-note">
+        <p><i class="fas fa-info-circle"></i> <strong>Catatan Penting:</strong> Informasi tiket dan jam operasional dapat berubah. Disarankan untuk mengonfirmasi dengan pemandu lokal atau pengelola akomodasi Anda sebelum berkunjung.</p>
+      </div>
+    </div>
+  </section>
+  <!-- 5. TIPS MINIMAL -->
+  <section class="tips-section">
+    <div class="section-header">
+      <h2>Tips Berkunjung</h2>
+      <p>Saran praktis untuk pengalaman yang lebih baik</p>
+    </div>
+    <div class="tips-grid-minimal">
+      <div class="tip-item-minimal">
+        <div class="tip-header">
+          <i class="fas fa-sun"></i>
+          <h4>Perlengkapan</h4>
+        </div>
+        <p>Bawa topi, sunscreen, dan air minum karena area benteng cukup terbuka dengan sedikit naungan. Kenakan sepatu yang nyaman untuk berjalan di bebatuan.</p>
+      </div>
+      <div class="tip-item-minimal">
+        <div class="tip-header">
+          <i class="fas fa-camera"></i>
+          <h4>Fotografi</h4>
+        </div>
+        <p>Waktu terbaik untuk fotografi adalah pagi atau sore hari. Bawa kamera dengan lensa wide untuk menangkap panorama benteng dan pemandangan laut yang luas.</p>
+      </div>
+      <div class="tip-item-minimal">
+        <div class="tip-header">
+          <i class="fas fa-book-open"></i>
+          <h4>Pengetahuan</h4>
+        </div>
+        <p>Untuk memahami sejarah lebih dalam, pertimbangkan untuk menyewa jasa pemandu lokal yang dapat menceritakan kisah-kisah menarik di balik benteng ini.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 6. CTA SECTION - TAMBAHAN -->
+  <section class="cta-section-nassau">
+    <h2>Jelajahi Keindahan Banda Neira</h2>
+    <p>Benteng Nassau hanyalah satu dari banyak keajaiban yang menanti di Kepulauan Banda</p>
+    <a href="destinasi.html" class="btn-primary-nassau">Jelajahi Destinasi Lainnya</a>
+  </section>
+</main>
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h2>BANDA NEIRA</h2>
+      <p>Eksplorasi Keindahan Kepulauan Rempah</p>
+    </div>
+    <div class="footer-contact">
+      <h3>Kontak</h3>
+      <p><i class="fas fa-map-marker-alt"></i> Kepulauan Banda, Maluku, Indonesia</p>
+      <p><i class="fas fa-phone"></i> +62 812 0000 0000</p>
+      <p><i class="fas fa-envelope"></i> info@bandaneira.site</p>
+    </div>
+    <div class="footer-social">
+      <h3>Ikuti Kami</h3>
+      <p><i class="fab fa-instagram"></i> Instagram: @bandaneira.site</p>
+      <p><i class="fab fa-facebook"></i> Facebook: Banda Neira Travel</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Wisata Banda Neira — Explore the Spice Islands
+  </div>
+</footer>
+<script>
+// Animasi scroll untuk semua section
+const sections = document.querySelectorAll('.history-timeline, .content-full, .gallery-section-nassau, .visit-info, .tips-section, .cta-section-nassau');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+sections.forEach(section => {
+  section.style.opacity = '0';
+  observer.observe(section);
+});
+// Smooth scroll untuk anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 100,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+// Efek hover untuk stat items
+document.querySelectorAll('.stat-item').forEach(item => {
+  item.addEventListener('mouseenter', function() {
+    this.style.transform = 'translateY(-5px)';
+  });
+  item.addEventListener('mouseleave', function() {
+    this.style.transform = 'translateY(0)';
+  });
+});
+</script>
+</body>
+</html>
